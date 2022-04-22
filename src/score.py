@@ -3,7 +3,7 @@
 
 
 import argparse
-from typing import Tuple, Dict, List
+from typing import Tuple, Dict
 
 
 def parse_input(input_file: str) -> Dict[int, Tuple[str, str]]:
