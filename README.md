@@ -11,3 +11,4 @@ NYU NLP Final Project: Build a semantic role labeling system utilizing SOTA mach
 | DistilBERT            |   93.75   | 90.00  | 91.84 |
 | DistilBERT (QA)       |   92.00   | 92.00  | 92.00 |
 | DistilBERT (ONE ARG1) |   92.67   | 92.67  | 92.67 |
+| DistilBERT (WORD2VEC) |   88.82   | 90.00  | 89.40 |
