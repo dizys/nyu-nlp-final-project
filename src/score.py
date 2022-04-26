@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-
 import argparse
 from typing import Tuple, Dict
 
@@ -34,9 +32,12 @@ def score(key_label_dict: Dict[int, Tuple[str, str]],
     correct = 0
     key_total = 0
     response_total = 0
+    key_ids = []
+    response_ids = []
     for i in key_label_dict.keys():
         if key_label_dict[i][1].startswith("ARG"):
             key_total += 1
+            key_ids.append(i)
         if i not in response_label_dict.keys():
             continue
         if key_label_dict[i][0] != response_label_dict[i][0]:
@@ -45,6 +46,7 @@ def score(key_label_dict: Dict[int, Tuple[str, str]],
             exit(1)
         if response_label_dict[i][1].startswith("ARG"):
             response_total += 1
+            response_ids.append(i)
         if not key_label_dict[i][1].startswith("ARG") and not response_label_dict[i][1].startswith("ARG"):
             continue
         if key_label_dict[i][1] == response_label_dict[i][1]:
@@ -53,6 +55,11 @@ def score(key_label_dict: Dict[int, Tuple[str, str]],
         if i not in key_label_dict.keys():
             if response_label_dict[i][1].startswith("ARG"):
                 response_total += 1
+                response_ids.append(i)
+    key_ids.sort()
+    response_ids.sort()
+    print(f"Keys: {key_ids}")
+    print(f"Responses: {response_ids}")
     print(f"Correct: {correct}")
     print(f"Key total: {key_total}")
     print(f"Response total: {response_total}")
@@ -64,7 +71,7 @@ def score(key_label_dict: Dict[int, Tuple[str, str]],
 
 def main():
     parser = argparse.ArgumentParser(
-        description="A scoring script for partitive semantic role labeling task")
+        description="A scoring script for Maxent semantic role labeling")
     parser.add_argument("keyfile", help="input key file")
     parser.add_argument("responsefile", help="input response file")
     args = parser.parse_args()
