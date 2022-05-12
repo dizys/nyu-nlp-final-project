@@ -107,9 +107,8 @@ if __name__ == "__main__":
     pair_test = np.load("test.npy")
     x_test = pair_test[:, 0:-1]
     y_test = pair_test[:, -1]
-
     print("training DT")
-    clf = RandomForestClassifier(n_jobs=4)  # n_jobs=2是线程数
+    clf = RandomForestClassifier(n_estimators=200, criterion="gini", min_samples_split=10, max_features="auto", n_jobs=4)  # searched hyper-parameters
     clf.fit(x, y)  # 训练过程
     y_pred_DT = clf.predict(x_test) # 获取测试数据预测结果
     print(confusion_matrix(y_test, y_pred_DT))
