@@ -13,7 +13,7 @@ NYU NLP Final Project: Build a semantic role labeling system utilizing SOTA mach
 
 - Baseline: [Maxent](https://github.com/dizys/nyu-nlp-homework-6)
 - Word2Vec: [Feature Extraction](./feature_extraction/word2vec.py) and [Classification](./feature_extraction/hf_transformer_word2vec.ipynb)
-- Random Forest: [Code](./src/random_forest.py)
+- Random Forest: [Code](./src/RandomForest.py)
 - BERT (base): [Notebook](./src/bert_based.ipynb)
 - DistilBERT: [Notebook](./src/hf_transformer.ipynb)
 - RoBERTA: [Notebook](./src/hf_transformer_roberta.ipynb)
